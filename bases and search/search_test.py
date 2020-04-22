@@ -2,6 +2,7 @@ from search import linear_search, binary_search
 import unittest
 
 
+
 class SearchTest(unittest.TestCase):
     def test_linear_search_with_items_in_list(self):
         # linear search can find items regardless of list order

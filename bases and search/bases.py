@@ -8,6 +8,7 @@ import string
 # string.printable is digits + ascii_letters + punctuation + whitespace
 
 
+
 def decode(digits, base):
     """Decode given digits in given base to number in base 10.
     digits: str -- string representation of number (in given base)

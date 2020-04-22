@@ -61,3 +61,4 @@ def binary_search_recursive(array, item, left=None, right=None):
             return binary_search_recursive(array, item, left, middle - 1)
         else:
             return middle
+            

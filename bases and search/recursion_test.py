@@ -2,6 +2,7 @@ from recursion import factorial
 import unittest
 
 
+
 class RecursionTest(unittest.TestCase):
     def test_factorial_with_small_integers(self):
         # factorial should return the product n*(n-1)*...*2*1 for n >= 0
