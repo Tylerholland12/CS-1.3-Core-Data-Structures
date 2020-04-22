@@ -23,7 +23,7 @@ def is_palindrome(text):
     # change this to call your implementation to verify it passes all tests
     assert isinstance(text, str), 'input is not a string: {}'.format(text)
     text = remove_punctuation(text)
-    #return is_palindrome_iterative(text)
+    
     return is_palindrome_recursive(text, 0, len(text) - 1)
 
 

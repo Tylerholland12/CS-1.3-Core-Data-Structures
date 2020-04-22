@@ -3,6 +3,7 @@ from strings import contains, find_index, find_all_indexes
 import unittest
 
 
+
 class StringsTest(unittest.TestCase):
 
     def test_contains_with_matching_patterns(self):

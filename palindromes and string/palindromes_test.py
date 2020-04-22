@@ -3,6 +3,7 @@ from palindromes import is_palindrome
 import unittest
 
 
+
 class TestPalindromes(unittest.TestCase):
 
     def test_is_palindrome_with_mirrored_strings(self):

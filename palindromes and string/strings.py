@@ -2,7 +2,7 @@ def contains(text, pattern):
     """Return a boolean indicating whether pattern occurs in text."""
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
-    # This solution checks the index for the pattern slicing with the pattern length.
+    
     pattern_length = len(pattern)
     index = 0
 
