@@ -54,7 +54,7 @@ class LinkedList(object):
 
     def length(self):
         """Return the length of this linked list by traversing its nodes.
-        Best and worst case running time: ??? under what conditions? [TODO]"""
+        Best and worst case running time: ??? under what conditions? [O(n)]"""
         # Node counter initialized to zero
         node_count = 0
         # Start at the head node
@@ -76,7 +76,17 @@ class LinkedList(object):
         # Check if the given index is out of range and if so raise an error
         if not (0 <= index < self.size):
             raise ValueError('List index out of range: {}'.format(index))
+        # return self.data
         # TODO: Find the node at the given index and return its data
+        current_node = self.head
+        count = 0
+        
+        while current_node:
+            if current_node == index:
+                return current_node.data
+            
+            current_node = current_node.next
+            
 
     def insert_at_index(self, index, item):
         """Insert the given item at the given index in this linked list, or
@@ -87,6 +97,19 @@ class LinkedList(object):
         if not (0 <= index <= self.size):
             raise ValueError('List index out of range: {}'.format(index))
         # TODO: Find the node before the given index and insert item after it
+        if index == self.size:
+            self.append(item)
+            return
+
+        current_node = self.head
+        count = 1
+
+        while count < index:
+            current_node = current_node.next
+            count += 1
+
+        new_node = Node(item)
+        new_node.next = current_node.next
 
     def append(self, item):
         """Insert the given item at the tail of this linked list.
