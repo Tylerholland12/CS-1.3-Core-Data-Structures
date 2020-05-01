@@ -77,7 +77,7 @@ class BinarySearchTree(object):
         TODO: Worst case running time: ??? under what conditions?"""
         # Find a node with the given item, if any
         node = self._find_node_recursive(item, self.root)
-        # TODO: Return the node's data if found, or None
+        # Return the node's data if found, or None
         return node.data if node else None
 
     def insert(self, item):
@@ -199,7 +199,7 @@ class BinarySearchTree(object):
         # TODO: Use helper methods and break this algorithm down into 3 cases
         # based on how many children the node containing the given item has and
         # implement new helper methods for subtasks of the more complex cases
-        
+
 
     def items_in_order(self):
         """Return an in-order list of all items in this binary search tree."""
