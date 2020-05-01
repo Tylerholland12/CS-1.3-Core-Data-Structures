@@ -86,6 +86,7 @@ class LinkedList(object):
                 return current_node.data
             
             current_node = current_node.next
+            count += 1
             
 
     def insert_at_index(self, index, item):
@@ -99,6 +100,10 @@ class LinkedList(object):
         # TODO: Find the node before the given index and insert item after it
         if index == self.size:
             self.append(item)
+            return
+            
+        if index == 0:
+            self.prepend(item)
             return
 
         current_node = self.head
@@ -127,6 +132,7 @@ class LinkedList(object):
             self.tail.next = new_node
         # Update tail to new node regardless
         self.tail = new_node
+        self.size += 1
 
     def prepend(self, item):
         """Insert the given item at the head of this linked list.
@@ -142,6 +148,7 @@ class LinkedList(object):
             new_node.next = self.head
         # Update head to new node regardless
         self.head = new_node
+        self.size += 1
 
     def find(self, quality):
         """Return an item from this linked list satisfying the given quality.
@@ -168,7 +175,12 @@ class LinkedList(object):
         Worst case running time: ??? under what conditions? [TODO]"""
         # TODO: Find the node containing the given old_item and replace its
         # data with new_item, without creating a new node object
-        pass
+        node = self.find(lambda item: item == old_item, False)
+
+        if node:
+            node.data = new_item
+        else:
+            raise ValueError("The old data was not found")
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
@@ -192,6 +204,7 @@ class LinkedList(object):
                 node = node.next
         # Check if we found the given item or we never did and reached the tail
         if found:
+            self.size -= 1
             # Check if we found a node in the middle of this linked list
             if node is not self.head and node is not self.tail:
                 # Update the previous node to skip around the found node
