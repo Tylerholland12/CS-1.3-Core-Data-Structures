@@ -13,23 +13,31 @@ class BinaryTreeNode(object):
     def is_leaf(self):
         """Return True if this node is a leaf (has no children)."""
         # TODO: Check if both left child and right child have no value
-        return ... and ...
+        return True if self.left is None and self.right is None
 
     def is_branch(self):
         """Return True if this node is a branch (has at least one child)."""
         # TODO: Check if either left child or right child has a value
-        return ... or ...
+        if self.right is not None or self.left is not None:
+        return True if self.left is not None or self.right is not None
 
     def height(self):
         """Return the height of this node (the number of edges on the longest
         downward path from this node to a descendant leaf node).
         TODO: Best and worst case running time: ??? under what conditions?"""
         # TODO: Check if left child has a value and if so calculate its height
-        ...
-        # TODO: Check if right child has a value and if so calculate its height
-        ...
-        # Return one more than the greater of the left height and right height
-        ...
+        left_height = 0
+        right_height = 0
+
+        if self.left is None and self.right is None:
+            return 0
+        elif self.left:
+            left_height = self.left.height()
+        elif self.right:
+            right_height = self.right.height()
+        return 1 + max(left_height, right_height)
+
+
 
 
 class BinarySearchTree(object):
@@ -55,7 +63,10 @@ class BinarySearchTree(object):
         downward path from this tree's root node to a descendant leaf node).
         TODO: Best and worst case running time: ??? under what conditions?"""
         # TODO: Check if root node has a value and if so calculate its height
-        ...
+        if self.root:
+            return self.root.height()
+        else:
+            raise ValueError('no node exists')
 
     def contains(self, item):
         """Return True if this binary search tree contains the given item.
