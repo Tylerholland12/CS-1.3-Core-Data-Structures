@@ -110,6 +110,8 @@ class LinkedList(object):
 
         new_node = Node(item)
         new_node.next = current_node.next
+        current_node.next = new_node
+        self.size += 1
 
     def append(self, item):
         """Insert the given item at the tail of this linked list.
