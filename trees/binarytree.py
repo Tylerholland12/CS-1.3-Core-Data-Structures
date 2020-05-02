@@ -53,9 +53,9 @@ class BinarySearchTree(object):
         return self.root is None
 
     def height(self):
-        # """Return the height of this tree (the number of edges on the longest
-        # downward path from this tree's root node to a descendant leaf node).
-        # TODO: Best and worst case running time: ??? under what conditions?"""
+        """Return the height of this tree (the number of edges on the longest
+        # downward path from this tree's root node to a descendant leaf node)."""
+        # TODO: Best and worst case running time: ??? under what conditions?
         if self.root:
             return self.root.height()
         else:
