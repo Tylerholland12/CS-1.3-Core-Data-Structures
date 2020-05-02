@@ -15,13 +15,13 @@ class BinaryTreeNode(object):
         return True if self.left is None and self.right is None
 
     def is_branch(self):
-        # """Return True if this node is a branch (has at least one child)."""
+        """Return True if this node is a branch (has at least one child)."""
         return True if self.left is not None or self.right is not None
 
     def height(self):
-        # """Return the height of this node (the number of edges on the longest
-        # downward path from this node to a descendant leaf node).
-        # TODO: Best and worst case running time: ??? under what conditions?"""
+        """Return the height of this node (the number of edges on the longest
+        downward path from this node to a descendant leaf node).
+        TODO: Best and worst case running time: ??? under what conditions?"""
         left_height = 0
         right_height = 0
 
@@ -37,7 +37,7 @@ class BinaryTreeNode(object):
 class BinarySearchTree(object):
 
     def __init__(self, items=None):
-        # """Initialize this binary search tree and insert the given items."""
+        """Initialize this binary search tree and insert the given items."""
         self.root = None
         self.size = 0
         if items is not None:
@@ -45,7 +45,7 @@ class BinarySearchTree(object):
                 self.insert(item)
 
     def __repr__(self):
-        # """Return a string representation of this binary search tree."""
+        """Return a string representation of this binary search tree."""
         return 'BinarySearchTree({} nodes)'.format(self.size)
 
     def is_empty(self):
@@ -54,36 +54,36 @@ class BinarySearchTree(object):
 
     def height(self):
         """Return the height of this tree (the number of edges on the longest
-        downward path from this tree's root node to a descendant leaf node)."""
-        # TODO: Best and worst case running time: ??? under what conditions?
+        downward path from this tree's root node to a descendant leaf node).
+        TODO: Best and worst case running time: ??? under what conditions?"""
         if self.root:
             return self.root.height()
         else:
             raise ValueError('no node exists')
 
     def contains(self, item):
-        # """Return True if this binary search tree contains the given item.
-        # TODO: Best case running time: ??? under what conditions?
-        # TODO: Worst case running time: ??? under what conditions?"""
+        """Return True if this binary search tree contains the given item.
+        TODO: Best case running time: ??? under what conditions?
+        TODO: Worst case running time: ??? under what conditions?"""
         # Find a node with the given item, if any
         node = self._find_node_recursive(item, self.root)
         # Return True if a node was found, or False
         return node is not None
 
     def search(self, item):
-        # """Return an item in this binary search tree matching the given item,
-        # or None if the given item is not found.
-        # TODO: Best case running time: ??? under what conditions?
-        # TODO: Worst case running time: ??? under what conditions?"""
+        """Return an item in this binary search tree matching the given item,
+        or None if the given item is not found.
+        TODO: Best case running time: ??? under what conditions?
+        TODO: Worst case running time: ??? under what conditions?"""
         # Find a node with the given item, if any
         node = self._find_node_recursive(item, self.root)
         # Return the node's data if found, or None
         return node.data if node else None
 
     def insert(self, item):
-        # """Insert the given item in order into this binary search tree.
-        # TODO: Best case running time: ??? under what conditions?
-        # TODO: Worst case running time: ??? under what conditions?"""
+        """Insert the given item in order into this binary search tree.
+        TODO: Best case running time: ??? under what conditions?
+        TODO: Worst case running time: ??? under what conditions?"""
         # Handle the case where the tree is empty
         if self.is_empty():
             self.root = BinarySearchTree(item)
