@@ -9,8 +9,10 @@ import string
 def remove_punctuation(text):
     text = text.replace(" ", "")
     text = text.replace("?", "")
+    text = text.replace("-", "")
     text = text.replace(",", "")
     text = text.replace(".", "")
+    text = text.replace("'", "")
     text = text.replace("!", "")
     text = text.lower()
     return text
