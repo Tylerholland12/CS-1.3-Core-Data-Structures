@@ -33,8 +33,7 @@ class LinkedList(object):
 
     def items(self):
         """Return a list of all items in this linked list.
-        Best and worst case running time: Theta(n) for n items in the list
-        because we always need to loop through all n nodes."""
+        Best and worst case running time: O(n) loops through each node."""
         result = []  # Constant time to create a new list
         node = self.head  # Constant time to assign a variable reference
         while node is not None:  # Always n iterations because no early exit
@@ -48,7 +47,7 @@ class LinkedList(object):
 
     def length(self):
         """Return the length of this linked list by traversing its nodes.
-        Best and worst case running time: O(n) it loops through the LL n times"""
+        Best and worst case running time: O(n) loops through """
         node_count = 0
         node = self.head
         while node is not None:
@@ -59,8 +58,8 @@ class LinkedList(object):
     def get_at_index(self, index):
         """Return the item at the given index in this linked list, or
         raise ValueError if the given index is out of range of the list size.
-        Best case running time: O(1) If List index is out of range, or if the index is 0 and it doesnt go through more than 1 loop iteration
-        Worst case running time: O(n) If the index is the last node in the linked list"""
+        Best case running time: O(1) 
+        Worst case running time: O(n) """
         if not (0 <= index < self.size):
             raise ValueError('List index out of range: {}'.format(index))
         current_node = self.head
@@ -73,8 +72,8 @@ class LinkedList(object):
     def insert_at_index(self, index, item):
         """Insert the given item at the given index in this linked list, or
         raise ValueError if the given index is out of range of the list size.
-        Best case running time: O(1) If list index is out of range, or if index == self.size or if index == 0 or if index == 1
-        Worst case running time: O(n) if index > 1 and not the size of the LL, then it will loop more than once iterating n times."""
+        Best case running time: O(1) 
+        Worst case running time: O(n) """
         if not (0 <= index <= self.size):
             raise ValueError('List index out of range: {}'.format(index))
         if index == self.size:
@@ -95,7 +94,7 @@ class LinkedList(object):
 
     def append(self, item):
         """Insert the given item at the tail of this linked list.
-        Best and worst case running time: O(1) everything runs constant time."""
+        Best and worst case running time: O(1) constant time."""
         new_node = Node(item)
         if self.is_empty():
             self.head = new_node
@@ -106,7 +105,7 @@ class LinkedList(object):
 
     def prepend(self, item):
         """Insert the given item at the head of this linked list.
-        Best and worst case running time: O(1) everythings running constant time here."""
+        Best and worst case running time: O(1) onstant time."""
         new_node = Node(item)
         if self.is_empty():
             self.tail = new_node
@@ -117,9 +116,8 @@ class LinkedList(object):
 
     def find(self, quality, flag = True):
         """Return an item from this linked list satisfying the given quality.
-        Best case running time: Omega(1) if item is near the head of the list.
-        Worst case running time: O(n) if item is near the tail of the list or
-        not present and we need to loop through all n nodes in the list."""
+        Best case running time: Omega(1) item could be near the head of the list.
+        Worst case running time: O(n) loops through nodes n number of times."""
         node = self.head  # Constant time to assign a variable reference
         while node is not None:  # Up to n iterations if we don't exit early
             if quality(node.data):  # Constant time to call quality function
@@ -130,8 +128,8 @@ class LinkedList(object):
     def replace(self, old_item, new_item):
         """Replace the given old_item in this linked list with given new_item
         using the same node, or raise ValueError if old_item is not found.
-        Best case running time: O(1) same as find best case.
-        Worst case running time: O(n) same as find worst case"""
+        Best case running time: O(1) same as find worst case.
+        Worst case running time: O(n) same as find best case"""
         
         node = self.find(lambda item: item == old_item, False)
         if node:
@@ -143,8 +141,8 @@ class LinkedList(object):
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
-        Best case running time: O(1) if the item is at the head, it never iterates
-        Worst case running time: O(n) if the item is never found and Value error is raised"""
+        Best case running time: O(1) will not iterate it item is at the head
+        Worst case running time: O(n) item may not be found and the error message will show"""
         node = self.head
         previous = None
         found = False
