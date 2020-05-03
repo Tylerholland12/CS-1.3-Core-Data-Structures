@@ -50,7 +50,7 @@ class BinarySearchTree(object):
 
     def is_empty(self):
         """Return True if this binary search tree is empty (has no nodes)."""
-        return False if self.root.is_empty() else True
+        return self.root is None
 
     def height(self):
         """Return the height of this tree (the number of edges on the longest
